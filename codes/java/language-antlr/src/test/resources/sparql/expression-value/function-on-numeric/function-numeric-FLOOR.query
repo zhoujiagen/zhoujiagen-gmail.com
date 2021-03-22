@@ -1,0 +1,4 @@
+SELECT
+	(floor(10.5) AS ?x)
+	(floor(-10.5) AS ?x)
+{}

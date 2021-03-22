@@ -1,0 +1,5 @@
+SELECT
+	(lcase("BAR") AS ?x)
+	(lcase("BAR"@en) AS ?y)
+	(lcase("BAR"^^xsd:string) AS ?z)
+{}

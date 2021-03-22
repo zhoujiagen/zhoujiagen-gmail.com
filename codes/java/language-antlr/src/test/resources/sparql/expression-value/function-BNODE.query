@@ -1,0 +1,3 @@
+SELECT
+	(BNODE("a") AS ?x)
+{}

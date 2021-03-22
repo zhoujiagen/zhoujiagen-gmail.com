@@ -1,0 +1,5 @@
+SELECT
+	(ucase("foo") AS ?x)
+	(ucase("foo"@en) AS ?y)
+	(ucase("foo"^^xsd:string) AS ?z)
+{}

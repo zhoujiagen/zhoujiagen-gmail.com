@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="order-app">
+		<dubbo:parameter key="qos.enable" value="false" />
+	</dubbo:application>
+
+	<!-- 使用ZK注册中心暴露发现服务地址 -->
+	<dubbo:registry protocol="zookeeper"
+		address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" /> <!-- client="zkclient" -->
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<!-- 线程模型: http://dubbo.io/books/dubbo-user-book/demos/thread-model.html -->
+	<dubbo:protocol name="dubbo" port="20882" />
+	<!-- http -->
+	<!-- <dubbo:protocol name="http" port="8888" server="servlet" contextpath="http" 
+		/> -->
+	<!-- rest -->
+	<dubbo:protocol name="rest" port="8882" server="servlet"
+		contextpath="rest" />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<!-- <dubbo:service interface="com.spike.microservice.dubbo.business.demo.DemoService" 
+		protocol="rest" ref="demoService" /> -->
+	<dubbo:service
+		interface="com.spike.codesnippet.seata.order.service.OrderService"
+		protocol="dubbo" ref="orderService" />
+
+	<!-- 和本地bean一样实现服务 -->
+	<!-- <bean id="demoService" class="com.spike.microservice.dubbo.business.demo.impl.DemoServiceImpl" 
+		/> -->
+	<bean id="orderService"
+		class="com.spike.codesnippet.seata.order.service.impl.OrderServiceImpl" />
+
+	<!-- 消费 -->
+	<dubbo:consumer timeout="5000" />
+	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
+	<dubbo:reference id="accountService"
+		interface="com.spike.codesnippet.seata.account.service.AccountService" />
+
+
+	<!-- seata -->
+	<bean class="io.seata.spring.annotation.GlobalTransactionScanner">
+		<constructor-arg value="order-app" />
+		<constructor-arg value="my_test_tx_group" />
+	</bean>
+</beans>

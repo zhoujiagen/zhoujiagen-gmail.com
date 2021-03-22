@@ -1,0 +1,3 @@
+SELECT
+	(UUID() AS ?x)
+{}

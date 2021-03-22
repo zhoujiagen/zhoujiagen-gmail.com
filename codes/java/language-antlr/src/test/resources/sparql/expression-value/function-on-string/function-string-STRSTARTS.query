@@ -1,0 +1,9 @@
+SELECT
+	(strStarts("foobar", "foo") AS ?x1)
+	(strStarts("foobar"@en, "foo"@en) AS ?y1)
+	(strStarts("foobar"^^xsd:string, "foo"^^xsd:string) AS ?z1)
+	(strStarts("foobar"^^xsd:string, "foo") AS ?x2)
+	(strStarts("foobar", "foo"^^xsd:string) AS ?y2)
+	(strStarts("foobar"@en, "foo") AS ?z2)
+	(strStarts("foobar"@en, "foo"^^xsd:string) AS ?x3)
+{}

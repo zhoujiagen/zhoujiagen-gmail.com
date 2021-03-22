@@ -1,0 +1,9 @@
+SELECT
+	(contains("foobar", "bar") AS ?x1)
+	(contains("foobar"@en, "foo"@en) AS ?y1)
+	(contains("foobar"^^xsd:string, "bar"^^xsd:string) AS ?z1)
+	(contains("foobar"^^xsd:string, "foo") AS ?x2)
+	(contains("foobar", "bar"^^xsd:string) AS ?y2)
+	(contains("foobar"@en, "foo") AS ?z2)
+	(contains("foobar"@en, "bar"^^xsd:string) AS ?x3)
+{}

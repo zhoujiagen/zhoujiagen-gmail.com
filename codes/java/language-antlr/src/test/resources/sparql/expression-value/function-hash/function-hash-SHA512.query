@@ -1,0 +1,2 @@
+SELECT (SHA512("abc") AS ?x) (SHA512("abc"^^xsd:string) AS ?y)
+{}

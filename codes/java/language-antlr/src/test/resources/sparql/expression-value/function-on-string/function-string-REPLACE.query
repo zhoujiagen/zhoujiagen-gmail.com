@@ -1,0 +1,5 @@
+SELECT
+	(replace("abcd", "b", "Z") AS ?x)
+	(replace("abab", "B", "Z","i") AS ?y)
+	(replace("abab", "B.", "Z","i") AS ?z)
+{}

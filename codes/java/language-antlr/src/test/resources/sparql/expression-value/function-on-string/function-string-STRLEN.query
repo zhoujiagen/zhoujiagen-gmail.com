@@ -1,0 +1,5 @@
+SELECT
+	(strlen("chat") AS ?x)
+	(strlen("chat"@en) AS ?y)
+	(strlen("chat"^^xsd:string) AS ?z)
+{}

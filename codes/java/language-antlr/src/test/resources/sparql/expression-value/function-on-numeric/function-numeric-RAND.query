@@ -1,0 +1,3 @@
+SELECT
+	(rand() AS ?x)
+{}

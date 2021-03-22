@@ -1,0 +1,10 @@
+SELECT * WHERE
+#{
+#    ?x foaf:mbox <mailto:alice@example> .
+#    ?x foaf:knows+/foaf:name ?name .
+#  }
+#{ <http://example/thing> rdf:type / rdfs:subClassOf* ?type }
+#{ ?x rdf:type/rdfs:subClassOf* ?type }  
+
+# subproperty
+{ ?x ?p ?v . ?p rdfs:subPropertyOf* :property }

@@ -1,0 +1,9 @@
+SELECT
+	(IF(?x = 2, "yes", "no") AS ?x1)
+	(IF(bound(?y), "yes", "no") AS ?y1)
+	(IF(?x=2, "yes", 1/?z) AS ?z1)
+	(IF(?x=1, "yes", 1/?z) AS ?x2)
+	(IF("2" > 1, "yes", "no") AS ?y2)
+{
+	?x ?p ?o.
+}

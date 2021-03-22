@@ -1,0 +1,8 @@
+SELECT
+	(substr("foobar", 4) AS ?x1)
+	(substr("foobar"@en, 4) AS ?y1)
+	(substr("foobar"^^xsd:string, 4) AS ?z1)
+	(substr("foobar", 4, 1) AS ?x2)
+	(substr("foobar"@en, 4, 1) AS ?y2)
+	(substr("foobar"^^xsd:string, 4, 1) AS ?z2)
+{}

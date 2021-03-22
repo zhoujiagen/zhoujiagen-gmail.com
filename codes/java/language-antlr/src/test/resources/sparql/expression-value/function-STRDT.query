@@ -1,0 +1,4 @@
+SELECT
+	(STRDT("123", xsd:integer) AS ?x)
+	(STRDT("iiii", <http://example/romanNumeral>) AS ?y)
+{}

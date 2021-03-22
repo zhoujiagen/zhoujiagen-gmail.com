@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Section 1}
+
+Section 1 Content.
+
+%% 列表
+\begin{enumerate}[itemsep=0pt,parsep=0pt,label=(\arabic*)]
+\item item1
+
+item1 content.
+
+\item item2
+
+item2 content.
+
+\end{enumerate}
+
+\subsection{SubSection 1}
+
+SubSection content.
+
+
+% 代码字体
+\texttt{int main() {}}
+
+% 大段代码
+\lstset{ basicstyle=\ttfamily, keywordstyle=\bfseries, commentstyle=\ttfamily, numbers=right, numberstyle=\footnotesize }
+\begin{lstlisting}[language=C]
+	#include <stdio.h>
+	main() {
+	    printlf("Hello world.\n");
+	}
+\end{lstlisting}
+
+\newpage

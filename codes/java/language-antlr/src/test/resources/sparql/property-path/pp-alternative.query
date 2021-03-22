@@ -1,0 +1,2 @@
+SELECT * WHERE
+{ :book1 dc:title | rdfs:label ?displayString }

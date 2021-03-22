@@ -1,0 +1,8 @@
+SELECT
+	(concat("foo", "bar") AS ?x1)
+	(concat("foo"@en, "bar"@en) AS ?y1)
+	(concat("foo"^^xsd:string, "bar"^^xsd:string) AS ?z1)
+	(concat("foo", "bar"^^xsd:string) AS ?x2)
+	(concat("foo"@en, "bar") AS ?y2)
+	(concat("foo"@en, "bar"^^xsd:string) AS ?z2)
+{}

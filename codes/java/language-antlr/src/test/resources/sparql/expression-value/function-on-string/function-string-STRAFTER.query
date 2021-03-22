@@ -1,0 +1,11 @@
+SELECT
+	(strafter("abc","b") AS ?x1)
+	(strafter("abc"@en,"ab") AS ?y1)
+	(strafter("abc"@en,"b"@cy) AS ?z1)
+	(strafter("abc"^^xsd:string,"") AS ?x2)
+	(strafter("abc","xyz") AS ?y2)
+	(strafter("abc"@en, "z"@en) AS ?z2)
+	(strafter("abc"@en, "z") AS ?x2)
+	(strafter("abc"@en, ""@en) AS ?y2)
+	(strafter("abc"@en, "") AS ?z2)
+{}

@@ -1,0 +1,5 @@
+SELECT
+	(encode_for_uri("Los Angeles") AS ?x)
+	(encode_for_uri("Los Angeles"@en) AS ?y)
+	(encode_for_uri("Los Angeles"^^xsd:string) AS ?z)
+{}

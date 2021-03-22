@@ -1,0 +1,6 @@
+spring.main.allow-bean-definition-overriding: true
+
+server:
+  port: 8800
+  
+management.endpoint.beans.enabled: true  

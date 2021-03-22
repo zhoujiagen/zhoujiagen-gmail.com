@@ -1,0 +1,7 @@
+SELECT *
+WHERE
+  {
+    ?x foaf:name ?name .
+    {}
+    ?x foaf:mbox ?mbox .
+  }

@@ -1,0 +1,2 @@
+SELECT (MD5("abc") AS ?x) (MD5("abc"^^xsd:string) AS ?y)
+{}

@@ -1,0 +1,18 @@
+options
+{
+  // BUILD_PARSER = false;
+}
+
+PARSER_BEGIN(Literals)
+package literal_plain;
+
+public class Literals
+{
+}
+
+PARSER_END(Literals)
+
+TOKEN :
+{
+  < HELLO : "hello" >
+}

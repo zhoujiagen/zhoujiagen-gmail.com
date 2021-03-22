@@ -1,0 +1,10 @@
+SELECT
+	(COALESCE(?x, 1/0) AS ?x1)
+	(COALESCE(1/0, ?x) AS ?y1)
+	(COALESCE(5, ?x) AS ?z1)
+	(COALESCE(?y, 3) AS ?x2)
+	(COALESCE(?y) AS ?y2)
+{
+	?x ?p ?o.
+	?y ?p ?o.
+}

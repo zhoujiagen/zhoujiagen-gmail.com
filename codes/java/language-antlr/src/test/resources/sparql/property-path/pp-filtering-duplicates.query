@@ -1,0 +1,6 @@
+SELECT * WHERE
+{ ?x foaf:mbox <mailto:alice@example> .
+    ?x foaf:knows/foaf:knows ?y .
+    FILTER ( ?x != ?y )
+    ?y foaf:name ?name 
+  }

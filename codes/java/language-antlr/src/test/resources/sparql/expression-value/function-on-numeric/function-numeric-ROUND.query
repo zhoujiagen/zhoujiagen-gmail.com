@@ -1,0 +1,5 @@
+SELECT
+	(round(2.4999) AS ?x)
+	(round(2.5) AS ?x)
+	(round(-2.5) AS ?x)
+{}

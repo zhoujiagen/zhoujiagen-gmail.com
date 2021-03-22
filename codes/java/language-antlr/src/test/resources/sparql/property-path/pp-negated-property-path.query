@@ -1,0 +1,2 @@
+SELECT * WHERE
+{ ?x !(rdf:type|^rdf:type) ?y }

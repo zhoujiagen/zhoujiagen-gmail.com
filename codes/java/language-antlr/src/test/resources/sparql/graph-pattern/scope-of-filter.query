@@ -1,0 +1,17 @@
+SELECT *
+WHERE 
+
+#{  ?x foaf:name ?name .
+#    ?x foaf:mbox ?mbox .
+#    FILTER regex(?name, "Smith")
+# }
+ 
+{  FILTER regex(?name, "Smith")
+    ?x foaf:name ?name .
+    ?x foaf:mbox ?mbox .
+ }
+ 
+#{  ?x foaf:name ?name .
+#    FILTER regex(?name, "Smith")
+#    ?x foaf:mbox ?mbox .
+# } 

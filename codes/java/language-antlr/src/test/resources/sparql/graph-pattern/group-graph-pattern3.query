@@ -1,0 +1,3 @@
+# Empty Group Pattern
+SELECT ?x
+WHERE {}

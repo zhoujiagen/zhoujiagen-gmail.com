@@ -1,0 +1,7 @@
+SELECT
+	(isNumeric(12) AS ?x1)
+	(isNumeric("12") AS ?y1)
+	(isNumeric("12"^^xsd:nonNegativeInteger) AS ?z1)
+	(isNumeric("1200"^^xsd:byte) AS ?x2)
+	(isNumeric(<http://example/>) AS ?y2)
+{}

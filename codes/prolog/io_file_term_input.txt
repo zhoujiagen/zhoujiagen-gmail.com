@@ -1,0 +1,3 @@
+'first term'. 'second term'.
+'third term'.
+'fourth term'. 'fifth term'.

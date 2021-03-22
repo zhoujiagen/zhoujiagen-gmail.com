@@ -1,0 +1,4 @@
+SELECT
+	(IRI("http://example/") AS ?x)
+	(IRI(<http://example/>) AS ?y)
+{}

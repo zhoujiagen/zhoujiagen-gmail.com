@@ -1,0 +1,5 @@
+SELECT
+	(timezone("2011-01-10T14:45:13.815-05:00"^^xsd:dateTime) AS ?x)
+	(timezone("2011-01-10T14:45:13.815Z"^^xsd:dateTime) AS ?y)
+	(timezone("2011-01-10T14:45:13.815"^^xsd:dateTime) AS ?z) # error
+{}

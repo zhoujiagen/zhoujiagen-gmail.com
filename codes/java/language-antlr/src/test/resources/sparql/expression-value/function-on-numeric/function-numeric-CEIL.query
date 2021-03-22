@@ -1,0 +1,4 @@
+SELECT
+	(ceil(10.5) AS ?x)
+	(ceil(-10.5) AS ?x)
+{}

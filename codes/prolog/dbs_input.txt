@@ -1,0 +1,6 @@
+john. smith. 45. london. doctor.
+martin. williams. 33. birmingham. teacher.
+henry. smith. 26. manchester. plumber.
+jane. wilson. 62. london. teacher.
+mary. smith. 29. glasgow. surveyor.
+end.

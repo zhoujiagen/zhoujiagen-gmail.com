@@ -1,0 +1,4 @@
+This is an example of
+a text file with four lines -
+each is terminated by an invisible character
+with ASCII value 10

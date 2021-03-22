@@ -1,0 +1,41 @@
+// 选项
+options
+{
+  JDK_VERSION = "1.8";
+}
+
+// 解析器类定义
+PARSER_BEGIN(SimpleParser)
+package simple;
+
+import java.io.*;
+
+public class SimpleParser
+{
+  public static void main(String [] args) throws ParseException
+  {
+    String someInput = "a";
+    StringReader sr = new StringReader(someInput);
+    Reader r = new BufferedReader(sr);
+    SimpleParser parser = new SimpleParser(r);
+    parser.A();
+  }
+}
+
+PARSER_END(SimpleParser)
+
+// 词法描述
+TOKEN :
+{
+  < A : "a" >
+}
+
+// 语法描述
+void A() :
+{}
+{
+  < A >
+  {
+    System.out.println("Found a 'a'!");
+  }
+}

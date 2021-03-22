@@ -1,0 +1,9 @@
+SELECT
+	(strEnds("foobar", "bar") AS ?x1)
+	(strEnds("foobar"@en, "bar"@en) AS ?y1)
+	(strEnds("foobar"^^xsd:string, "bar"^^xsd:string) AS ?z1)
+	(strEnds("foobar"^^xsd:string, "bar") AS ?x2)
+	(strEnds("foobar", "bar"^^xsd:string) AS ?y2)
+	(strEnds("foobar"@en, "bar") AS ?z2)
+	(strEnds("foobar"@en, "bar"^^xsd:string) AS ?x3)
+{}

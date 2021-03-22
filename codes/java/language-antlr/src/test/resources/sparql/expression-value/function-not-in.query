@@ -1,0 +1,8 @@
+SELECT
+	(2 NOT IN (1, 2, 3) AS ?x1)
+	(2 NOT IN () AS ?y1)
+	(2 NOT IN (<http://example/iri>, "str", 2.0) AS ?z1)
+	(2 NOT IN (1/0, 2) AS ?x2)
+	(2 NOT IN (2, 1/0) AS ?y2)
+	(2 NOT IN (3, 1/0) AS ?z2)
+{}

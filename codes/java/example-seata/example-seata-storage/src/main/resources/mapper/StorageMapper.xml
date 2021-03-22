@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.spike.codesnippet.seata.storage.dao.StorageMapper">
+	<resultMap id="BaseResultMap"
+		type="com.spike.codesnippet.seata.storage.domain.Storage">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="commodity_code" property="commodityCode"
+			jdbcType="VARCHAR" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+	</resultMap>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from storage_tbl
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.spike.codesnippet.seata.storage.domain.Storage">
+		insert into storage_tbl (id, commodity_code, `count`
+		)
+		values (#{id,jdbcType=INTEGER}, #{commodityCode,jdbcType=VARCHAR},
+		#{count,jdbcType=INTEGER}
+		)
+	</insert>
+
+	<update id="deduct">
+		UPDATE storage_tbl
+		SET `count` = `count` - #{count}
+		WHERE commodity_code = #{commodityCode}
+	</update>
+
+	<update id="updateByPrimaryKey"
+		parameterType="com.spike.codesnippet.seata.storage.domain.Storage">
+		update storage_tbl
+		set commodity_code =
+		#{commodityCode,jdbcType=VARCHAR},
+		`count` = #{count,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select id, commodity_code, `count`
+		from storage_tbl
+		where
+		id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select id, commodity_code,
+		`count`
+		from storage_tbl
+	</select>
+</mapper>
