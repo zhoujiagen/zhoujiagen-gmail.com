@@ -28,26 +28,26 @@ After reading, ask yourself these questions:
  -->
 
 
-# 引用
+## 引用
 
 <!--
 Author(s), Date of publication, Title (book or article), Journal,Volume #, Issue #, pages:
 If web access: url; date accessed
 -->
 
-# 关键字
+## 关键字
 
-# 主题
+## 主题
 
 <!-- General subject, Specific subject -->
 
-# 假设
+## 假设
 
-# 方法论
+## 方法论
 
-# 结果
+## 结果
 
-# 关键点总结
+## 关键点总结
 
 <!--
 Document level
@@ -69,11 +69,11 @@ Paragraph level: words or phrases to look for
 • the data suggest
 -->
 
-## 文章结构
+### 文章结构
 
-## 术语
+### 术语
 
-## 摘要
+### 摘要
 
 |Title: [Enter the title of the class]||
 |:---|:---|
@@ -96,20 +96,20 @@ Subtopic #3: [Type the name of the subtopic.]
 |Summary||
 |[Summarize all of the contents presented in the lesson.]||
 
-# 上下文
+## 上下文
 
 <!-- how this article relates to other work in the field; how it ties in with key issues and findings by others, including yourself -->
 
-# 意义
+## 意义
 
 <!-- Significance to the field; in relation to your own work -->
 
-# 重要的图表
+## 重要的图表
 
 <!-- brief description; page number -->
 
-# 引用的重要文献
+## 引用的重要文献
 
 <!-- cite those obviously related to your topic AND any papers frequently cited by others because those works may well prove to be essential as you develop your own work -->
 
-# 其他备注
+## 其他备注

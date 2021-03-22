@@ -1,0 +1,119 @@
+
+
+type Product {
+    productID: ID!
+    name: String @search(by: [term])
+    reviews: [Review] @hasInverse(field: about)
+}
+
+type Customer {
+    username: String! @id @search(by: [hash, regexp])
+    reviews: [Review] @hasInverse(field: by)
+}
+
+type Review {
+    id: ID!
+    about: Product!
+    by: Customer!
+    comment: String @search(by: [fulltext])
+    rating: Int @search
+}
+
+
+
+query MyQuery {
+  __typename
+  getGQLSchema {
+    schema
+    generatedSchema
+    id
+  }
+}
+
+mutation {
+  addProduct(
+    input: [
+      { name: "GraphQL on Dgraph" }
+      { name: "Dgraph: THe GraphQL Database" }
+    ]
+  ) {
+    product {
+      productID
+      name
+    }
+  }
+  addCustomer(input: [{ username: "Michael" }]) {
+    customer {
+      username
+    }
+  }
+}
+
+{
+  queryProduct(filter: {name: {anyofterms: "GraphQL"}}) {
+    __typename
+    productID
+    name
+  }
+}
+
+query {
+  queryCustomer(filter: {username: {regexp: "/Mich.*/"}}) {
+    username
+    reviews(order: {asc: rating}, first: 5) {
+      comment
+      rating
+      about {
+        name
+      }
+    }
+  }
+}
+
+query {
+  queryReview(filter: { comment: { alloftext: "easy to intall" } }) {
+    comment
+    by {
+      username
+    }
+    about {
+      name
+    }
+  }
+}
+
+query {
+  query1: queryReview(filter: { comment: { alloftext: "easy to intall" } }) {
+    ...reviewResult
+  }
+  
+  query2: queryReview(filter: {comment: {alloftext: "best GraphQL"}, rating: {ge: 10}}) {
+    ...reviewResult
+  }
+}
+
+ fragment reviewResult on Review {
+  __typename
+  comment
+    by {
+      username
+    }
+    about {
+      name
+    }
+  }
+  
+query {
+  queryCustomer(filter: {username: {regexp: "/Mich.*/"}}) {
+    username
+    reviews(order: {asc: rating}, first: 5) {
+      comment
+      rating
+      about {
+        name
+      }
+    }
+  }
+}
+
+

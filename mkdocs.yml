@@ -34,6 +34,19 @@ nav:
           - 'Routines': dbms/mysql/8.0/mysql_routines.md
           - 'InnoDB': dbms/mysql/8.0/mysql_innodb.md
           - 'Explain': dbms/mysql/8.0/mysql_explain.md
+      - 'Text and Graph':
+          - 'WordNet': dbms/graph/wordnet.md
+          - 'Lemon':  dbms/graph/lemon.md
+          - 'An Introduction to Linguistics': dbms/graph/linguistics.md
+          - 'Dgraph': dbms/graph/dgraph.md
+          - 'JanusGraph': dbms/graph/janusgraph.md
+          - 'Apache Jena': dbms/graph/jena.md
+          - 'SPARQL': dbms/graph/sparql.md
+          - 'AllegroGraph': dbms/graph/allegrograph.md
+          - 'Apache Solr': dbms/graph/solr.md
+          - 'Apache TinkerPop': dbms/graph/tinkerpop.md
+          - 'ElasticSearch': dbms/graph/elasticsearch.md
+          - 'Benchmark': dbms/graph/graph-benchmark.md
     - Editor:
       - Eclipse: editor/eclipse.md
       - 'IntelliJ IDEA': editor/idea.md
