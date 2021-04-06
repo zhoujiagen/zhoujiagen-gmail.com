@@ -96,6 +96,9 @@ https://github.com/sprin/markdown-inline-graphviz/issues/7
 pip install markdown-inline-graphviz-extension
 
 
+markdown_extensions:
+  - markdown_inline_graphviz
+
 <div>
 {% dot attack_plan.svg
     digraph G {
