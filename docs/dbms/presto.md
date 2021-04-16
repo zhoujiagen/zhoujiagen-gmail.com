@@ -43,6 +43,93 @@ Query Execution Model:
 
 <!-- 描述软件的系统结构, 核心和辅助组件的结构; 系统较复杂时细分展示. -->
 
+|Module|Description|
+|:---|:---|
+|presto-atop||
+|presto-spi|`com.facebook.presto.spi.connector.Connector`|
+|presto-array||
+|presto-cache||
+|presto-jmx||
+|presto-record-decoder||
+|presto-kafka||
+|presto-redis||
+|presto-accumulo||
+|presto-cassandra||
+|presto-blackhole||
+|presto-memory||
+|presto-orc||
+|presto-parquet||
+|presto-rcfile||
+|presto-hive||
+|presto-hive-common||
+|presto-hive-hadoop2||
+|presto-hive-metastore||
+|presto-i18n-functions||
+|presto-teradata-functions||
+|presto-example-http||
+|presto-local-file||
+|presto-tpch||
+|presto-tpcds||
+|presto-raptor||
+|presto-base-jdbc||
+|presto-testing-docker||
+|presto-mysql||
+|presto-oracle||
+|presto-postgresql||
+|presto-redshift||
+|presto-sqlserver||
+|presto-mongodb||
+|presto-bytecode||
+|presto-client||
+|presto-parser|AST: `com.facebook.presto.sql.tree.Node`<br/>Parser: `com.facebook.presto.sql.parser.SqlParser`|
+|presto-main|`com.facebook.presto.server.PrestoServer`<br/>`com.facebook.presto.server.ServerMainModule`<br/>`com.facebook.presto.server.CoordinatorModule`<br/>`com.facebook.presto.server.WorkerModule`|
+|presto-ml||
+|presto-geospatial||
+|presto-geospatial-toolkit||
+|presto-benchmark||
+|presto-tests||
+|presto-product-tests||
+|presto-jdbc||
+|presto-pinot||
+|presto-pinot-toolkit||
+|presto-cli|`<main-class>com.facebook.presto.cli.Presto</main-class>`|
+|presto-benchmark-driver||
+|presto-server|使用Apache Maven Assembly聚合输出归档: launcher, plugin. `<main-class>com.facebook.presto.server.PrestoServer</main-class>`|
+|presto-server-rpm||
+|presto-docs||
+|presto-verifier||
+|presto-testing-server-launcher||
+|presto-plugin-toolkit||
+|presto-resource-group-managers||
+|presto-password-authenticators||
+|presto-session-property-managers||
+|presto-benchto-benchmarks||
+|presto-thrift-api||
+|presto-thrift-testing-server||
+|presto-thrift-connector||
+|presto-matching||
+|presto-memory-context||
+|presto-proxy|`<main-class>com.facebook.presto.proxy.PrestoProxy</main-class>`|
+|presto-kudu||
+|presto-elasticsearch||
+|presto-function-namespace-managers||
+|presto-expressions||
+|presto-benchmark-runner||
+|presto-spark-classloader-interface||
+|presto-spark-base||
+|presto-spark-common||
+|presto-spark||
+|presto-spark-package||
+|presto-spark-launcher||
+|presto-spark-testing||
+|presto-druid||
+|presto-common||
+|presto-thrift-testing-udf-server||
+|presto-thrift-spec||
+
+
+![Depdencies](./images/presto-dependency.svg)
+
 ## 使用
 
 <!-- 记录软件如何使用. -->
@@ -191,6 +278,37 @@ The following properties allow tuning the Regular Expression Functions.
 ## 数据结构和算法
 
 <!-- 描述软件中重要的数据结构和算法, 支撑过程部分的记录. -->
+
+### SQL解析
+
+|Abstraction|Description|
+|:---|:---|
+|`com.facebook.presto.server.protocol.Query`|查询动作<br/>创建: com.facebook.presto.server.protocol.LocalQueryProvider#getQuery|
+|`com.facebook.presto.sql.tree.Query`|SQL查询: `extends com.facebook.presto.sql.tree.Statement`|
+|`com.facebook.presto.sql.tree.Node`|AST节点|
+|`com.facebook.presto.sql.parser.SqlParser`|SQL解析器: 使用ANTLR|
+|`presto-parser\src\main\antlr4\com\facebook\presto\sql\parser\SqlBase.g4`|SQL ANTLR语法.|
+
+```
+com.facebook.presto.sql.parser.SqlParser#invokeParser
+```
+
+Upstream:
+
+```
+com.facebook.presto.dispatcher.DispatchManager
+```
+
+Downstream:
+
+```
+
+```
+
+### SQL计划生成
+
+### SQL执行
+
 
 ## 过程
 
