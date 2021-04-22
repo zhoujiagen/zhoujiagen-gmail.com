@@ -2,7 +2,7 @@
 
 |时间|内容|
 |:---|:---|
-|20210414|kick off.|
+|20210414|kick off: version 0.250.|
 
 ## 术语
 
@@ -43,7 +43,9 @@ Query Execution Model:
 
 <!-- 描述软件的系统结构, 核心和辅助组件的结构; 系统较复杂时细分展示. -->
 
-|Module|Description|
+### 项目结构
+
+|<div style="width:200px">Module</div>|Description|
 |:---|:---|
 |presto-atop||
 |presto-spi|`com.facebook.presto.spi.connector.Connector`|
@@ -80,7 +82,7 @@ Query Execution Model:
 |presto-sqlserver||
 |presto-mongodb||
 |presto-bytecode||
-|presto-client||
+|presto-client|The Presto client allows users to submit Presto queries and view results. <br/>`POST /v1/statement`, `GET nextUri`, `DELETE nextUri`.|
 |presto-parser|AST: `com.facebook.presto.sql.tree.Node`<br/>Parser: `com.facebook.presto.sql.parser.SqlParser`|
 |presto-main|`com.facebook.presto.server.PrestoServer`<br/>`com.facebook.presto.server.ServerMainModule`<br/>`com.facebook.presto.server.CoordinatorModule`<br/>`com.facebook.presto.server.WorkerModule`|
 |presto-ml||
@@ -89,10 +91,10 @@ Query Execution Model:
 |presto-benchmark||
 |presto-tests||
 |presto-product-tests||
-|presto-jdbc||
+|presto-jdbc|Presto JDBC Driver: `com.facebook.presto.jdbc.PrestoDriver`|
 |presto-pinot||
 |presto-pinot-toolkit||
-|presto-cli|`<main-class>com.facebook.presto.cli.Presto</main-class>`|
+|presto-cli|The Presto CLI provides a terminal-based interactive shell for running queries.<br/>`<main-class>com.facebook.presto.cli.Presto</main-class>`|
 |presto-benchmark-driver||
 |presto-server|使用Apache Maven Assembly聚合输出归档: launcher, plugin. `<main-class>com.facebook.presto.server.PrestoServer</main-class>`|
 |presto-server-rpm||
@@ -109,7 +111,7 @@ Query Execution Model:
 |presto-thrift-connector||
 |presto-matching||
 |presto-memory-context||
-|presto-proxy|`<main-class>com.facebook.presto.proxy.PrestoProxy</main-class>`|
+|presto-proxy|Proxy service for Presto: This proxy server allows clients to securely access a remote Presto server (or set of servers) without having direct access to the server. <br/>`<main-class>com.facebook.presto.proxy.PrestoProxy</main-class>`|
 |presto-kudu||
 |presto-elasticsearch||
 |presto-function-namespace-managers||
@@ -129,6 +131,61 @@ Query Execution Model:
 
 
 ![Depdencies](./images/presto-dependency.svg)
+
+### `com.google.inject.Module`
+
+#### `server.PrestoServer`
+
+|Name|Source|Description|
+|:---|:---|:---|
+|airlift.node.NodeModule|airlift||
+|airlift.discovery.client.DiscoveryModule|airlift||
+|airlift.http.server.HttpServerModule|airlift||
+|airlift.json.JsonModule|airlift||
+|server.smile.SmileModule|presto||
+|airlift.jaxrs.JaxrsModule|airlift||
+|org.weakref.jmx.guice.MBeanModule|weakref||
+|airlift.jmx.JmxModule|airlift||
+|airlift.jmx.JmxHttpModule|airlift||
+|airlift.log.LogJmxModule|airlift||
+|airlift.tracetoken.TraceTokenModule|airlift||
+|airlift.event.client.JsonEventModule|airlift||
+|airlift.event.client.HttpEventModule|airlift||
+|server.security.ServerSecurityModule|presto||
+|security.AccessControlModule|presto||
+|eventlistener.EventListenerModule|presto||
+|server.ServerMainModule|presto|服务器主模块: `server.ResourceManagerModule`, `server.CoordinatorModule`, `server.WorkerModule`.|
+|server.GracefulShutdownModule|presto||
+|execution.warnings.WarningCollectorModule|presto||
+|storage.TempStorageModule|presto||
+
+### `server.ServerMainModule`
+
+|Name|Source|Description|
+|:---|:---|:---|
+|com.facebook.presto.server.InternalCommunicationModule|||
+|com.facebook.presto.sql.planner.sanity.PlanChecker|||
+|com.facebook.presto.sql.parser.SqlParser|||
+|com.facebook.airlift.stats.GcMonitor|||
+|com.facebook.presto.metadata.SessionPropertyManager|||
+|com.facebook.presto.metadata.SchemaPropertyManager|||
+|com.facebook.presto.metadata.TablePropertyManager|||
+|com.facebook.presto.metadata.ColumnPropertyManager|||
+|com.facebook.presto.metadata.AnalyzePropertyManager|||
+|com.facebook.presto.metadata.DiscoveryNodeManager|||
+|com.facebook.presto.metadata.InternalNodeManager|||
+|com.facebook.presto.metadata.ForNodeManager|||
+|com.facebook.presto.execution.scheduler.NodeScheduler|||
+|com.facebook.presto.execution.scheduler.NetworkTopology|||
+|com.facebook.presto.server.TaskResource|||
+|com.facebook.presto.server.TaskExecutorResource|||
+|com.facebook.presto.execution.TaskManagementExecutor|||
+|com.facebook.presto.execution.SqlTaskManager|||
+|com.facebook.drift.codec.utils.DefaultThriftCodecsModule|||
+
+#### `server.ResourceManagerModule`
+#### `server.CoordinatorModule`
+#### `server.WorkerModule`
 
 ## 使用
 
@@ -278,6 +335,14 @@ The following properties allow tuning the Regular Expression Functions.
 ## 数据结构和算法
 
 <!-- 描述软件中重要的数据结构和算法, 支撑过程部分的记录. -->
+
+### Query Procesls
+
+CLI例:
+
+```
+com.facebook.presto.cli.Presto
+```
 
 ### SQL解析
 
