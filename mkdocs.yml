@@ -19,6 +19,16 @@ nav:
       - 'Java EE': java/javaee.md
     - 'DBMS':
       - 'Refernces of Database Internals': dbms/ref-of-db-internals.md
+      - 'File & Memory':
+        - 'Dynamic storage allocation': dbms/file/dynamic_storage_allocation.md
+      - 'Data formats, algorithms and protocols':
+        - 'Home': dbms/data/index.md
+        - 'Examples':
+          - 'MySQL':
+            - '.frm': dbms/data/examples/mysql/mysql-frm-file-format.md
+            - 'InnoDB Record and Page Structure': dbms/data/examples/mysql/mysql-innodb-record-and-page-structure.md
+            - 'Client/Server Protocol': dbms/data/examples/mysql/mysql-client-server-protocol.md
+            - 'Binary Log': dbms/data/examples/mysql/mysql-binary-log.md
       - Parser:
         - 'Modeling in RDFS and OWL': dbms/parser/rdfs_owl.md
         - 'SPARQL': dbms/parser/sparql.md
@@ -36,8 +46,6 @@ nav:
           - 'Routines': dbms/mysql/8.0/mysql_routines.md
           - 'InnoDB': dbms/mysql/8.0/mysql_innodb.md
           - 'Explain': dbms/mysql/8.0/mysql_explain.md
-      - 'File & Memory':
-          - 'Dynamic storage allocation': dbms/file/dynamic_storage_allocation.md
       - 'Text and Graph':
           - 'WordNet': dbms/graph/wordnet.md
           - 'Lemon':  dbms/graph/lemon.md
