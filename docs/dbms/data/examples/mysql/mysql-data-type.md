@@ -76,14 +76,14 @@ Convention:
 
 |Type|Description|
 |:---|:---|
-|GEOMETRY||
-|POINT||
-|LINESTRING||
-|POLYGON||
-|MULTIPOINT||
-|MULTILINESTRING||
-|MULTIPOLYGON||
-|GEOMETRYCOLLECTION||
+|GEOMETRY|The term most commonly used is geometry, defined as a point or an aggregate of points representing anything in the world that has a location.|
+|POINT|A Point is a geometry that represents a single location in coordinate space.|
+|LINESTRING|A Curve is a one-dimensional geometry, usually represented by a sequence of points.<br/>A LineString is a Curve with linear interpolation between points.|
+|POLYGON|A Surface is a two-dimensional geometry.<br/>A Polygon is a planar Surface representing a multisided geometry.|
+|MULTIPOINT|A MultiPoint is a geometry collection composed of Point elements.|
+|MULTILINESTRING|A MultiCurve is a geometry collection composed of Curve elements<br/>A MultiLineString is a MultiCurve geometry collection composed of LineString elements.|
+|MULTIPOLYGON|A MultiSurface is a geometry collection composed of surface elements.<br/>A MultiPolygon is a MultiSurface object composed of Polygon elements.|
+|GEOMETRYCOLLECTION|A GeometryCollection is a geometry that is a collection of zero or more geometries of any class.|
 
 ## The JSON Data Type
 
