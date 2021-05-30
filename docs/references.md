@@ -47,11 +47,3 @@ JVMTI:
 
 - [Java 8 JVMTM Tool Interface](https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html): JVMTI的文档.
 - [Building a Super Simple JVMTI Agent](http://saurabhbadhwar.xyz/blog/2019/02/18/building-super-simple-jvmti-agent/): 示例.
-
-
-## MySQL
-
-- [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/)
-- [MySQL Internals Manual](https://dev.mysql.com/doc/internals/en/)
-- [MySQL Server Doxygen Documentation, 8.0.19](https://dev.mysql.com/doc/dev/mysql-server/8.0.19/)
-- [MySQL 5.7 Explain Output Format](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html)
